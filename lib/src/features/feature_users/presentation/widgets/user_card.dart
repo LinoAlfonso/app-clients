@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../../../../config/config.dart';
 import '../../domain/domain.dart';
 
 class UserInfoCard extends StatelessWidget {
-
+  final Function(User) onTap;
   final User user;
 
-  const UserInfoCard({Key? key, required this.user}) : super(key: key);
+  const UserInfoCard({super.key, required this.user, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -20,36 +21,35 @@ class UserInfoCard extends StatelessWidget {
           children: [
             Text(
               user.name,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
+              style: TextStyles.bold(
+                size: 18,
+                color: AppColors.primary,
               ),
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                const Icon(Icons.phone, color: Colors.green),
+                const Icon(Icons.phone, color: AppColors.green),
                 const SizedBox(width: 8),
-                Text(user.phone),
+                Text(user.phone, style: const TextStyle(color: AppColors.primary)),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                const Icon(Icons.email, color: Colors.green),
+                const Icon(Icons.email, color: AppColors.green),
                 const SizedBox(width: 8),
-                Text(user.email),
+                Text(user.email, style: const TextStyle(color: AppColors.primary)),
               ],
             ),
             const SizedBox(height: 16),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {}, // Acción para ver publicaciones
+                onPressed: () => onTap(user),
                 child: const Text(
                   "VER PUBLICACIONES",
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: AppColors.primary),
                 ),
               ),
             ),

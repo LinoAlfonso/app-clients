@@ -1,3 +1,4 @@
+import 'package:ceiba_users/src/features/feature_users/domain/domain.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/feature_on_boarding/feature_on_boarding.dart';
@@ -20,7 +21,10 @@ final routesApp = GoRouter(
       path: '/detail-post-user',
       name: DetailPostUserView.routeName,
       builder: (context, state) {
-        return DetailPostUserView();
+        final user = state.extra as User;
+        return DetailPostUserView(
+          user: user,
+        );
       }
     ),
   ],

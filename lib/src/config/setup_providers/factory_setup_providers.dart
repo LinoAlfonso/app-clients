@@ -1,25 +1,42 @@
 
-
-/*
-import '../../features/feature_cats/domain/domain.dart';
-import '../../features/feature_cats/infrastructure/infrastructure.dart';
-import '../../features/feature_cats/presentation/presentation.dart';
+import '../../features/feature_post/feature_post.dart';
+import '../../features/feature_users/domain/domain.dart';
+import '../../features/feature_users/infrastructure/infrastructure.dart';
+import '../../features/feature_users/presentation/presentation.dart';
 
 class FactorySetupProviders {
 
-  */
-/*Provider breeds cats*//*
+/*Provider user*/
 
-  static CatsDatasource createBreedsCatsDatasource() {
-    return CatsDatasourceImpl();
+  static UserDatasource createUserDatasource() {
+    return UserDatasourceImpl();
   }
 
-  static CatsRepository createBreedsCatsRepository() {
-    return CatsRepositoryImpl(remoteDatasource: createBreedsCatsDatasource());
+  static UserLocalDatasource createUserLocalDatasource() {
+    return UserLocalDatasourceImpl();
   }
 
-  static CatsProvider createBreedsCatsProvider() {
-    return CatsProvider(catsRepository: createBreedsCatsRepository());
+  static UserRepository createUserRepository() {
+    return UserRepositoryImpl(remoteDataSource: createUserDatasource(), localDataSource: createUserLocalDatasource());
   }
 
-}*/
+  static UsersProvider createUserProvider() {
+    return UsersProvider(userRepository: createUserRepository());
+  }
+
+  /*Provider post*/
+
+  static PostDatasource createPostDatasource() {
+    return PostDatasourceImpl();
+  }
+
+  static PostRepository createPostRepository() {
+    return PostRepositoryImpl(postDatasource: createPostDatasource());
+  }
+
+  static PostProvider createPostProvider() {
+    return PostProvider(postRepository: createPostRepository());
+  }
+
+
+}
