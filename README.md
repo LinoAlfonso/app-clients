@@ -31,25 +31,25 @@ lib/src/
 
 ## 📚 Librerías Principales
 
-- **provider**: ^6.0.0
+- **provider**: 
     - Gestión de estado de la aplicación
     - Implementación del patrón Provider para inyección de dependencias
 
-- **go_router**: ^13.0.0
+- **go_router**: 
     - Navegación declarativa
     - Manejo de rutas nombradas
     - Soporte para deep linking
 
-- **sqflite**: ^2.3.0
+- **sqflite**:
     - Base de datos local SQLite
     - Almacenamiento offline de usuarios
     - Caché para reducir llamadas al API
 
-- **http**: ^1.1.0
+- **http**:
     - Cliente HTTP para consumo de APIs
     - Manejo de peticiones REST
 
-- **flutter_dotenv**: ^5.1.0
+- **flutter_dotenv**:
     - Gestión de variables de entorno
     - Configuración segura de URLs y tokens
 
