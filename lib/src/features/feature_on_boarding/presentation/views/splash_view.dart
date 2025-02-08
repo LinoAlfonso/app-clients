@@ -39,12 +39,15 @@ class _SplashViewState extends State<SplashView> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          "CEIBA USERS",
-                          style: TextStyles.bold(
-                              color: AppColors.primary, size: 30),
+                        Image.asset(
+                          'assets/png/logo.png',
+                          width: 200,
                         ),
-                        const SizedBox(height: 30),
+                        Text(
+                          "Clientes",
+                          style: TextStyles.bold(
+                              color: AppColors.primary, size: 20),
+                        ),
                       ],
                     ),
                   ),

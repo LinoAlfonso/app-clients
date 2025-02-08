@@ -1,5 +1,5 @@
-
 import '../../domain/domain.dart';
+import '../infrastructure.dart';
 
 class UserRepositoryImpl implements UserRepository {
   final UserDatasource remoteDataSource;
@@ -13,11 +13,17 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<List<User>> getUsers() async {
     try {
+      if (await (localDataSource as UserLocalDatasourceImpl).hasUsers()) {
+        print('Local data source has users');
+        return await localDataSource.getUsers();
+      }
+
       final users = await remoteDataSource.getUsers();
+      print('Remote data source has users');
+      await (localDataSource as UserLocalDatasourceImpl).saveUsers(users);
       return users;
-    } on Exception {
-      final users = await localDataSource.getUsers();
-      return users;
+    } catch (e) {
+      return await localDataSource.getUsers();
     }
   }
 }
