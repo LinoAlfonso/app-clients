@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../feature_users/domain/domain.dart';
+import '../../../feature_users/presentation/widgets/icon_text_custom.dart';
 import '../widgets/post_user.dart';
 
 class DetailPostUserView extends StatefulWidget {
@@ -45,7 +46,13 @@ class _DetailPostUserViewState extends State<DetailPostUserView> {
           return Column(
             children: [
               Expanded(
-                child: ListView.builder(
+                child: postProvider.posts.isEmpty?
+                const Center(
+                  child: IconTextCustom(
+                    icon: Icons.search_off,
+                    text: 'No se encontraron posts',
+                  ),
+                ):ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   itemCount: postProvider.posts.length,
                   itemBuilder: (context, index) {

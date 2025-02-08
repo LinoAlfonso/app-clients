@@ -43,11 +43,6 @@ class _SplashViewState extends State<SplashView> {
                           'assets/png/logo.png',
                           width: 200,
                         ),
-                        Text(
-                          "Clientes",
-                          style: TextStyles.bold(
-                              color: AppColors.primary, size: 20),
-                        ),
                       ],
                     ),
                   ),

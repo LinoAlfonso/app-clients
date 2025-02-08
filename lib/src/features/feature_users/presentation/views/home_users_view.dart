@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:ceiba_users/src/features/feature_users/presentation/widgets/header_home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -41,7 +42,7 @@ class _HomeUsersViewState extends State<HomeUsersView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HeaderHome(onTapLogo: (){}, title: 'Ceiba Users'),
+      appBar: HeaderHome(onTapLogo: (){}, title: 'Ceiba Clientes'),
       body: Consumer<UsersProvider>(
         builder: (context, usersProvider, child) {
           return Column(
@@ -73,13 +74,15 @@ class _HomeUsersViewState extends State<HomeUsersView> {
                           ),
                         )
                         :
-                ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                  itemCount: usersProvider.users.length,
-                  itemBuilder: (context, index) {
-                    final user = usersProvider.users[index];
-                    return UserInfoCard(user: user, onTap: onTapUser);
-                  },
+                FadeInUpBig(
+                  child: ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                    itemCount: usersProvider.users.length,
+                    itemBuilder: (context, index) {
+                      final user = usersProvider.users[index];
+                      return UserInfoCard(user: user, onTap: onTapUser);
+                    },
+                  ),
                 ),
               )
             ],

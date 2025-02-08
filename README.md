@@ -7,15 +7,22 @@ implementando una arquitectura limpia y permitiendo el uso offline de la aplicac
 
 El proyecto sigue los principios de Clean Architecture con la siguiente estructura:
 
+```bash
 lib/src/
-├── config/ # Configuraciones globales
-├── core/ # Funcionalidades core de la aplicación
-│ ├── database/ # Gestión de base de datos local
-│ └── env/ # Configuración de variables de entorno
-├── features/ # Módulos de la aplicación
-│ └── feature_users/ # Módulo de usuarios
-│ ├── domain/ # Reglas de negocio y contratos
-│ └── infrastructure/ # Implementaciones concretas
+├── config/                     # Configuraciones globales
+├── core/                       # Funcionalidades core de la aplicación
+│   ├── database/               # Gestión de base de datos local
+│   └── env/                    # Configuración de variables de entorno
+├── features/                   # Módulos de la aplicación
+│   ├── feature_users/          # Módulo de usuarios
+│   │   ├── domain/             # Reglas de negocio y contratos
+│   │   ├── infrastructure/     # Implementaciones concretas
+│   │   └── presentation/       # Widgets, vistas y lógica de UI
+│   └── feature_posts/          # Módulo de publicaciones
+│       ├── domain/             # Reglas de negocio y contratos
+│       ├── infrastructure/     # Implementaciones concretas
+│       └── presentation/       # Widgets, vistas y lógica de UI
+
 
 
 ### Capas de la Arquitectura:
