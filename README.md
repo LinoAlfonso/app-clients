@@ -22,8 +22,7 @@ lib/src/
 │       ├── domain/             # Reglas de negocio y contratos
 │       ├── infrastructure/     # Implementaciones concretas
 │       └── presentation/       # Widgets, vistas y lógica de UI
-
-
+```
 
 ### Capas de la Arquitectura:
 - **Domain**: Contiene las entidades, casos de uso y contratos de repositorios
